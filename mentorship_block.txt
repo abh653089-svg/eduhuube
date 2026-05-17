@@ -1,0 +1,310 @@
+const MentorshipSection = () => {
+  const categories = ['Digital Marketing', 'Data Analytics', 'Web Development', 'Cyber Security', 'App Development'];
+  const [activeTab, setActiveTab] = useState<any>('Digital Marketing');
+
+  const programData = {
+    'Digital Marketing': {
+      title: 'AI-Powered Digital Marketing',
+      desc: 'Master performance marketing, SEO, algorithms, and AI tools like ChatGPT & Midjourney to scale brand revenues.',
+      badge: 'Trending',
+      features: ['💰 ₹12L+ Package', '🔥 10+ AI Tools', '📈 ₹50K Ads Budget'],
+      duration: '16 Weeks',
+      salary: '₹ 6.5 LPA',
+      tools: ['Meta Ads', 'Google Analytics', 'ChatGPT', 'SEMrush'],
+      visualType: 'marketing'
+    },
+    'Data Analytics': {
+      title: 'Data Science & Business Analytics',
+      desc: 'Uncover deep business insights using SQL, Python, Excel, and Tableau. Transition from raw data to boardroom decisions.',
+      badge: 'Highest Placement',
+      features: ['📊 15+ Capstone Projects', '💡 SQL & Tableau', '🐍 Advanced Python'],
+      duration: '24 Weeks',
+      salary: '₹ 9.2 LPA',
+      tools: ['Python', 'SQL', 'Tableau', 'Pandas'],
+      visualType: 'data'
+    },
+    'Web Development': {
+      title: 'Next-Gen MERN Stack Full Stack',
+      desc: 'Build enterprise-grade SaaS web applications using MongoDB, Express, React, Node.js, and TypeScript with AI workflows.',
+      badge: '100% Interviews',
+      features: ['🚀 5 SaaS Apps', '⚡ Next.js & Serverless', '🤖 AI Coding Assistant'],
+      duration: '28 Weeks',
+      salary: '₹ 11.5 LPA',
+      tools: ['React', 'NodeJS', 'MongoDB', 'NextJS'],
+      visualType: 'web'
+    },
+    'Cyber Security': {
+      title: 'Ethical Hacking & Cyber Defense',
+      desc: 'Protect networks and critical infrastructure from intrusions. Learn penetration testing, ethical hacking, and threat hunting.',
+      badge: 'High Demand',
+      features: ['🛡️ CEH Syllabus', '💻 Cyber Range Labs', '🔐 Zero-Trust Network'],
+      duration: '20 Weeks',
+      salary: '₹ 8.5 LPA',
+      tools: ['Wireshark', 'Kali Linux', 'Metasploit', 'Nmap'],
+      visualType: 'security'
+    },
+    'App Development': {
+      title: 'Native iOS & Android Mobile Eng.',
+      desc: 'Develop high-performance mobile applications using React Native, Flutter, and Swift. Publish apps to Google Play & App Store.',
+      badge: 'Showcase',
+      features: ['📱 3 Live Play Store Apps', '✨ Flutter Core', '🎨 Rich UI/UX Animations'],
+      duration: '22 Weeks',
+      salary: '₹ 7.8 LPA',
+      tools: ['Flutter', 'React Native', 'Swift', 'Kotlin'],
+      visualType: 'app'
+    }
+  };
+
+  const activeData = programData[activeTab as keyof typeof programData];
+
+  // Helper to render interactive visual mockups (white theme optimized)
+  const renderVisual = (type: string) => {
+    switch (type) {
+      case 'marketing':
+        return (
+          <div className="relative w-full h-[280px] flex flex-col justify-between p-4 bg-white text-slate-800 rounded-2xl overflow-hidden border border-slate-100 shadow-sm text-left">
+             <div className="flex justify-between items-center mb-2">
+                <span className="text-[9px] uppercase font-black tracking-widest text-[#004aad] bg-blue-50 px-2 py-0.5 rounded-full">Ads Campaign</span>
+                <span className="text-emerald-500 font-bold text-[10px] flex items-center gap-1">● Live</span>
+             </div>
+             <div className="flex-1 flex items-center justify-center relative">
+                <div className="w-24 h-24 rounded-full border-[8px] border-slate-50 border-t-[#004aad] flex flex-col items-center justify-center shadow-md relative bg-slate-50/30">
+                   <span className="text-xl font-black text-slate-900">340%</span>
+                   <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">ROI</span>
+                </div>
+                <motion.div 
+                   animate={{ y: [0, -4, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                   className="absolute bottom-0 right-0 bg-slate-55/95 backdrop-blur-sm p-2 rounded-xl border border-slate-100 text-left shadow-lg">
+                   <div className="text-[8px] text-slate-400 font-bold">Growth</div>
+                   <div className="text-sm font-black text-emerald-600">+15.4K</div>
+                </motion.div>
+             </div>
+             <div className="h-10 flex gap-1.5 items-end justify-between px-2 mt-2 border-t border-slate-50 pt-2">
+                {[40, 60, 45, 80, 55, 95, 70].map((h, i) => (
+                  <motion.div 
+                    initial={{ height: 0 }}
+                    animate={{ height: `${h}%` }}
+                    transition={{ duration: 0.8, delay: i * 0.05 }}
+                    key={i} 
+                    className="w-full bg-[#004aad] rounded-t-sm opacity-80"
+                  />
+                ))}
+             </div>
+          </div>
+        );
+      case 'data':
+        return (
+          <div className="relative w-full h-[280px] flex flex-col justify-between p-4 bg-white text-slate-800 rounded-2xl overflow-hidden border border-slate-100 shadow-sm text-left">
+             <div className="flex justify-between items-center mb-2">
+                <span className="text-[9px] uppercase font-black tracking-widest text-[#004aad] bg-blue-50 px-2 py-0.5 rounded-full">Tableau Analytics</span>
+                <span className="text-slate-400 text-[10px]">Dataset_2026</span>
+             </div>
+             <div className="grid grid-cols-2 gap-2.5 flex-1 items-center">
+                <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                   <div className="text-slate-400 text-[8px] font-bold uppercase tracking-wider">Accuracy</div>
+                   <div className="text-lg font-black text-blue-600">99.8%</div>
+                </div>
+                <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                   <div className="text-slate-400 text-[8px] font-bold uppercase tracking-wider">Rows</div>
+                   <div className="text-lg font-black text-orange-600">14.2M</div>
+                </div>
+                <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 col-span-2 flex items-center justify-between">
+                   <div>
+                      <div className="text-slate-400 text-[8px] font-bold uppercase tracking-wider">Trend</div>
+                      <div className="text-sm font-black text-emerald-600">Upswing</div>
+                   </div>
+                   <div className="w-12 h-6 overflow-hidden relative">
+                      <svg viewBox="0 0 100 50" className="w-full h-full">
+                         <path d="M0,45 Q25,20 50,30 T100,5" fill="none" stroke="#10b981" strokeWidth="4" strokeLinecap="round" />
+                      </svg>
+                   </div>
+                </div>
+             </div>
+          </div>
+        );
+      case 'web':
+        return (
+          <div className="relative w-full h-[280px] flex flex-col bg-[#0f172a] text-slate-300 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 text-left">
+             <div className="bg-[#1e293b] px-3 py-1.5 flex items-center justify-between border-b border-slate-800 shrink-0">
+                <div className="flex gap-1.5">
+                   <div className="w-2 h-2 rounded-full bg-red-500/80"></div>
+                   <div className="w-2 h-2 rounded-full bg-yellow-500/80"></div>
+                   <div className="w-2 h-2 rounded-full bg-green-500/80"></div>
+                </div>
+                <span className="font-mono text-[10px] text-slate-400">App.tsx</span>
+             </div>
+             <div className="flex-1 p-3.5 font-mono text-[10px] leading-relaxed text-left bg-[#0b0f19]">
+                <div className="text-slate-500">// MERN SaaS Setup</div>
+                <div className="mt-1"><span className="text-pink-500">import</span> React <span className="text-pink-500">from</span> <span className="text-amber-300">'react'</span>;</div>
+                <div className="mt-1"><span className="text-blue-400">const WebApp</span> = () =&gt; &#123;</div>
+                <div className="mt-1 pl-3"><span className="text-pink-500">return</span> &lt;<span className="text-blue-400">eBuddhaSaaS</span> /&gt;;</div>
+                <div className="mt-1">&#125;;</div>
+             </div>
+             <motion.div 
+                animate={{ scale: [1, 1.03, 1] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-2 right-2 bg-slate-900 border border-slate-700 p-2.5 rounded-xl shadow-2xl flex items-center gap-2">
+                <div className="w-6 h-6 bg-blue-500 rounded-md flex items-center justify-center text-white"><Code size={14} /></div>
+                <div className="text-left">
+                   <div className="text-slate-400 text-[8px] font-bold">Preview</div>
+                   <div className="text-[10px] font-black text-white">SaaS Panel</div>
+                </div>
+             </motion.div>
+          </div>
+        );
+      case 'security':
+        return (
+          <div className="relative w-full h-[280px] flex flex-col justify-between p-4 bg-emerald-50/10 text-slate-800 rounded-2xl overflow-hidden border border-emerald-100 shadow-sm text-left">
+             <div className="flex justify-between items-center mb-2">
+                <span className="text-[9px] uppercase font-black tracking-widest text-emerald-600 bg-emerald-100/30 border border-emerald-100/50 px-2 py-0.5 rounded-full">Cyber Shield</span>
+                <span className="text-emerald-500 font-bold text-[9px] flex items-center gap-1 animate-pulse">● Active</span>
+             </div>
+             <div className="flex-1 flex items-center justify-center relative">
+                <div className="w-28 h-28 rounded-full border border-emerald-500/10 flex items-center justify-center relative">
+                   <motion.div 
+                      animate={{ rotate: 360 }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 origin-center bg-gradient-to-tr from-emerald-500/10 via-transparent to-transparent rounded-full"
+                   />
+                   <div className="w-10 h-10 bg-emerald-50 border border-emerald-200/50 rounded-xl flex items-center justify-center relative z-10">
+                      <Shield className="text-emerald-600" size={20} />
+                   </div>
+                   <div className="absolute top-6 left-8 w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></div>
+                </div>
+             </div>
+             <div className="mt-2 border-t border-emerald-100 pt-2 text-left flex justify-between items-center text-[10px]">
+                <span className="text-slate-500 font-bold">Firewall Status</span>
+                <span className="text-emerald-600 font-bold">SECURED (0% Threats)</span>
+             </div>
+          </div>
+        );
+      case 'app':
+        return (
+          <div className="relative w-full h-[280px] flex items-center justify-center p-2 bg-slate-50 rounded-2xl border border-slate-100">
+             <div className="w-40 h-[240px] bg-white rounded-[28px] border-[4px] border-slate-200 p-2.5 shadow-xl relative flex flex-col justify-between overflow-hidden">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-3 bg-slate-100 rounded-b-lg z-20"></div>
+                <div className="flex justify-between items-center text-slate-400 text-[7px] mt-1 px-1">
+                   <span>9:41</span>
+                   <span>5G</span>
+                </div>
+                <div className="flex-1 flex flex-col justify-center mt-2 text-center">
+                   <div className="w-8 h-8 bg-[#004aad] rounded-lg flex items-center justify-center text-white mx-auto mb-2 shadow-sm">
+                      <GraduationCap size={16} />
+                   </div>
+                   <div className="text-[9px] font-black text-slate-800">eBuddha Mobile</div>
+                   <button className="mt-3 w-full bg-[#004aad] text-white py-1 rounded-md text-[8px] font-bold">
+                      Enroll Now
+                   </button>
+                </div>
+             </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <section className="py-16 bg-slate-50 relative overflow-hidden">
+       {/* Background accents to match high-end corporate style */}
+       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#004aad]/5 blur-[100px] rounded-full translate-x-1/4 -translate-y-1/4 pointer-events-none"></div>
+
+       <div className="container-wide px-6 relative z-10">
+         <motion.div 
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.5 }}
+           className="text-center mb-10"
+         >
+            <h2 className="text-[32px] md:text-[44px] font-black text-[#0a1128] mb-3 tracking-tight leading-none">
+               Mentorship Programs
+            </h2>
+            <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Master high-demand roles with top tech experts</p>
+         </motion.div>
+
+         {/* Navigation Tabs */}
+         <div className="flex overflow-x-auto gap-3 mb-10 pb-2 scrollbar-hide justify-center max-w-4xl mx-auto px-4">
+           {categories.map(cat => (
+             <button 
+               key={cat}
+               onClick={() => setActiveTab(cat)}
+               className={`whitespace-nowrap px-6 py-3 rounded-xl font-black text-xs transition-all border cursor-pointer ${activeTab === cat ? 'bg-[#004aad] border-[#004aad] text-white shadow-lg' : 'bg-white border-slate-200/80 text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}
+             >
+               {cat}
+             </button>
+           ))}
+         </div>
+
+         {/* Featured Program Card */}
+         <motion.div 
+            key={activeTab}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="bg-white rounded-[2rem] shadow-[0_30px_60px_rgba(10,17,40,0.06)] overflow-hidden border border-slate-100 max-w-5xl mx-auto"
+         >
+            <div className="grid lg:grid-cols-[1fr_1.1fr]">
+               {/* Left Visual Box */}
+               <div className="p-6 md:p-8 bg-slate-50/50 border-r border-slate-100 flex items-center justify-center min-h-[340px]">
+                  <div className="w-full max-w-[380px] relative">
+                     {renderVisual(activeData.visualType)}
+                  </div>
+               </div>
+               
+               {/* Right Details Box */}
+               <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center text-left bg-white">
+                  <div className="flex items-center gap-1.5 bg-blue-50 text-[#004aad] border border-blue-100 font-black text-[9px] px-3 py-1 rounded-full w-fit mb-4 uppercase tracking-wider">
+                     <Sparkles size={11} /> {activeData.badge}
+                  </div>
+                  
+                  <h3 className="text-[24px] md:text-[30px] font-black text-[#0a1128] mb-3 leading-tight tracking-tight">{activeData.title}</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed mb-6 font-medium">{activeData.desc}</p>
+                  
+                  {/* Features Row */}
+                  <div className="grid grid-cols-3 gap-2.5 mb-6">
+                     {activeData.features.map((feat, idx) => (
+                        <div key={idx} className="flex items-center justify-center text-center bg-slate-50 border border-slate-100 p-2.5 rounded-xl text-[10px] font-black text-slate-700">
+                           {feat}
+                        </div>
+                     ))}
+                  </div>
+
+                  {/* Combined Tools and Stats */}
+                  <div className="grid md:grid-cols-2 gap-4 mb-6 pt-4 border-t border-slate-100">
+                     <div>
+                        <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2">Tools & Skills</div>
+                        <div className="flex flex-wrap gap-1.5">
+                           {activeData.tools.map((tool, idx) => (
+                              <span key={idx} className="bg-slate-100 border border-slate-200/50 text-slate-700 px-2.5 py-1 rounded-lg text-[10px] font-bold">
+                                 {tool}
+                              </span>
+                           ))}
+                        </div>
+                     </div>
+                     <div className="grid grid-cols-2 bg-slate-50 rounded-xl p-1.5 border border-slate-100 divide-x divide-slate-200">
+                        <div className="text-center py-1">
+                           <div className="text-slate-400 text-[8px] font-bold uppercase tracking-wider">Duration</div>
+                           <div className="text-slate-800 font-black text-[12px]">{activeData.duration}</div>
+                        </div>
+                        <div className="text-center py-1">
+                           <div className="text-slate-400 text-[8px] font-bold uppercase tracking-wider">Avg. Salary</div>
+                           <div className="text-slate-800 font-black text-[12px]">{activeData.salary}</div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div className="flex gap-3">
+                     <button className="flex-1 bg-[#004aad] hover:bg-blue-600 text-white py-3 rounded-xl font-black text-xs transition-all shadow-[0_4px_12px_rgba(0,74,173,0.15)] cursor-pointer text-center">
+                        Download Syllabus
+                     </button>
+                     <button className="flex-1 bg-slate-100 border border-slate-200/50 text-slate-700 hover:bg-slate-200 py-3 rounded-xl font-black text-xs transition-all cursor-pointer text-center">
+                        Learn More
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </motion.div>
+       </div>
+    </section>
+  );
+};

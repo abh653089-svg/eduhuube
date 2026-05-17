@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0047FF;
+  --color-primary-dark: #0035CC;
+  --color-secondary: #60A5FA;
+  --color-accent: #00D1FF;
+  --color-surface: #FFFFFF;
+  --color-background: #FFFFFF;
+  --color-dark-bg: #020617;
+  --color-text-main: #0F172A;
+  --color-text-muted: #64748B;
+  
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+
+  --shadow-premium: 0 40px 100px rgba(0, 0, 0, 0.08);
+  --shadow-primary-glow: 0 20px 40px rgba(0, 71, 255, 0.2);
+}
+
+@layer base {
+  body {
+    @apply font-outfit text-slate-900 antialiased;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .premium-gradient {
+    @apply bg-gradient-to-br from-[#2563EB] via-[#7C3AED] to-[#00D1FF];
+  }
+
+  .btn-primary {
+    @apply px-8 py-4 rounded-2xl font-bold text-lg bg-gradient-to-r from-[#2563EB] to-[#7C3AED] text-white shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all active:scale-95;
+  }
+
+  .btn-outline {
+    @apply px-8 py-4 rounded-2xl font-bold text-lg border-2 border-slate-200 hover:border-primary hover:text-primary transition-all active:scale-95 text-center;
+  }
+
+  .section-padding {
+    @apply py-20 px-6 lg:px-12;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes slide-reveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.reveal-on-scroll {
+  animation: slide-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
